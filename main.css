@@ -46,7 +46,7 @@ header {
     font-family: 'Lato', 'Didact Gothic', 'Arial', sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 1.625em;
+    font-size: 1.8em;
     line-height: 150%;
     letter-spacing: 0.02em;
     color: #FAFAFA;
@@ -149,7 +149,7 @@ div.slide_img > img {
     overflow: hidden;
 }
 label.previous, label.next {
-    width: 2.625em;
+    width: 2.8em;
     height: 100%;
     position: absolute;
     top: 0;   
@@ -182,11 +182,11 @@ div.icon-and-temperature, div.icon-and-temperature > *,
 div.details, div.details > * {
     flex: 1;
 }
-h1.city-name {
+h1.city1-name, h1.city2-name, h1.city3-name {
     font-family: 'Lato', 'Didact Gothic', 'Arial', sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 1.625em;
+    font-size: 1.8em;
     letter-spacing: 0.02em;
     word-break: break-word;
     align-items: center;
@@ -196,20 +196,22 @@ h1.city-name {
 div.icon-and-temperature {
     padding: 0 0.5em;
 }
-img.weather-icon {
-    height: 2.625em;
+img.city1-weather-icon, img.city2-weather-icon, img.city3-weather-icon {
+    width: 3.6em;
+    height: 3.6em;
 }
-h2.temperature {
-    font-size: 2.625em;
+h2.city1-temperature, h2.city2-temperature, h2.city3-temperature {
+    font-size: 3.6em;
     font-family: 'Lato', 'Didact Gothic', 'Arial', sans-serif;
     font-style: normal;
     font-weight: 400;
 }
 div.details > * {
     font-family: 'Lato', 'Didact Gothic', 'Arial', sans-serif;
+    font-size: 1.2em;
 }   
 div.details:last-child {
-    padding-bottom: 4.2em;
+    padding-bottom: 4em;
 }
 p {
     margin-bottom: 0;
@@ -235,7 +237,7 @@ label.dots {
     background-color: rgba(0, 0, 0, 0.4);
 }
 label.dots:hover {
-    background-color: #ffc600;
+    background-color: #f4a71d;
     cursor: pointer;
 }
 #id1:checked ~ #one,
@@ -246,7 +248,7 @@ label.dots:hover {
 #id1:checked ~ .nav #dot1,
 #id2:checked ~ .nav #dot2,
 #id3:checked ~ .nav #dot3 {
-    background-color: #ffc600;
+    background-color: #f4a71d;
 }
 /* Media */
 @media only screen and (max-width: 1024px) and (max-height: 1366px) {
@@ -273,17 +275,10 @@ label.dots:hover {
 @media only screen and (max-width: 320px) {
     html {font-size: 0.4rem;
     }
-    div.details {
+    div.icon-and-temperature {
         flex-direction: column;
     }
-    div.details-label {
-        text-align: center;
-    }
-    div.details-value {
-        text-align: center;
-    }
-    div.icon-and-temperature > div {
-        padding-left: 0;
-        padding-right: 0;
+    div.details {
+        flex-direction: column;
     }
 }
