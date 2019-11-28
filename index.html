@@ -1,38 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pl_PL">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="shortcut icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="main.css">
-
-    <title>WeatherApp</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Weather App</title>
+  <meta name="description" content="Weather App | prognoza pogody dla Twojego miasta">
+  <meta name="keywords" content="Weather App, prognoza pogody, pogoda, meteo">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Lato:400,700&subset=latin-ext" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="main.css" type="text/css">
+  <script src="js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+  <script src="https://kit.fontawesome.com/9b2aac655c.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <div class="container">
-        <header>
-            <h1 class="text-center">WheaterApp</h1>
-        </header>
+
+  <!-- Header & search-box -->
+  <div class="main-contener w-auto">
+    <div class="background position-fixed d-flex flex-column flex-nowrap justify-content-center align-items-center">
+      <div class="header rounded-lg">
+        <header>Pogoda dla Twojego miasta</header>
+      </div>
+      <section class="search-box">
+        <div class="input-group">
+          <input class="search-city form-control" type="search" placeholder="Wyszukaj miasto" aria-label="search">
+          <div class="input-group-append">
+            <button class="btn btn-secondary" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- Current weather panel / slider -->
+      <!-- Up to 3 locations selected by the user -->
+      <main>
+        <div class="main-panel rounded-lg">
+          <div class="slider-container">
+            <input type="radio" name="images" id="id1" checked>
+            <input type="radio" name="images" id="id2">
+            <input type="radio" name="images" id="id3">
+
+            <!-- Location #1 -->
+            <div class="slide_img animationFade" id="one">
+              <label for="id3" class="previous"></label>  
+              <img src="img/bg_500x550.png" alt="city1">
+              <label for="id2" class="next"></label>
+              <div class="cityWeather pt-4 d-flex flex-column flex-nowrap justify-content-center align-items-center text-center col-12">
+                <h1 class="city-name mb-0">Wejherowo</h1>
+                <div class="icon-and-temperature pb-1 d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <img src="icons\svg\mostlycloudy.svg" class="weather-icon" alt="weather-icon">
+                  </div> 
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <h2 class="temperature mb-0">5&deg;C</h2>
+                  </div>
+                </div> 
+                
+                <div class="details d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
+                  <div class="details-label col-xs-12 col-sm-6 col-md-6">
+                    <p>Ciśnienie:</p>
+                  </div>
+                  <div class="details-value col-xs-12 col-sm-6 col-md-6" id="pressure">
+                    <p>1000 hPa</p>
+                  </div>
+                </div>
+
+                <div class="details d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
+                  <div class="details-label col-xs-12 col-sm-6 col-md-6">
+                    <p>Wiatr:</p>
+                  </div>
+                  <div class="details-value col-xs-12 col-sm-6 col-md-6" id="pressure">
+                    <p>20 km/h</p>
+                  </div>
+                </div>
+
+                <div class="details d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
+                  <div class="details-label col-xs-12 col-sm-6 col-md-6">
+                    <p>Opady:</p>
+                  </div>
+                  <div class="details-value col-xs-12 col-sm-6 col-md-6" id="pressure">
+                    <p>1 mm/m<sup>2</sup></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location #2 -->            
+            <div class="slide_img" id="two">
+              <label for="id1" class="previous"></label>
+              <img src="img/bg_500x550.png" alt="">
+              <label for="id3" class="next"></label>
+              <div class="cityWeather pt-4 d-flex flex-column flex-nowrap justify-content-center align-items-center text-center col-12">
+                <h1 class="city-name mb-0" id="city2">Gdynia</h1>
+
+                <div class="icon-and-temperature pb-1 d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <img src="icons\svg\mostlycloudy.svg" class="weather-icon" alt="weather-icon">
+                  </div> 
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <h2 class="temperature mb-0">4&deg;C</h2>
+                  </div>
+                </div> 
+                
+                <div class="details d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
+                  <div class="details-label col-xs-12 col-sm-6 col-md-6">
+                    <p>Ciśnienie:</p>
+                  </div>
+                  <div class="details-value col-xs-12 col-sm-6 col-md-6" id="pressure">
+                    <p>1000 hPa</p>
+                  </div>
+                </div>
+
+                <div class="details d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
+                  <div class="details-label col-xs-12 col-sm-6 col-md-6">
+                    <p>Wiatr:</p>
+                  </div>
+                  <div class="details-value col-xs-12 col-sm-6 col-md-6" id="pressure">
+                    <p>20 km/h</p>
+                  </div>
+                </div>
+
+                <div class="details d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
+                  <div class="details-label col-xs-12 col-sm-6 col-md-6">
+                    <p>Opady:</p>
+                  </div>
+                  <div class="details-value col-xs-12 col-sm-6 col-md-6" id="pressure">
+                    <p>1 mm/m<sup>2</sup></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location #3 -->
+            <div class="slide_img" id="three">
+              <label for="id2" class="previous"></label>
+              <img src="img/bg_500x550.png" alt="">
+              <label for="id1" class="next"></label>
+              <div class="cityWeather pt-4 d-flex flex-column flex-nowrap justify-content-center align-items-center text-center col-12">
+                <h1 class="city-name mb-0" id="city3">Gdańsk</h1>
+                <div class="icon-and-temperature pb-1 d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <img src="icons\svg\mostlycloudy.svg" class="weather-icon" alt="weather-icon">
+                  </div> 
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <h2 class="temperature mb-0">3&deg;C</h2>
+                  </div>
+                </div> 
+                  
+                <div class="details d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
+                  <div class="details-label col-xs-12 col-sm-6 col-md-6">
+                    <p>Ciśnienie:</p>
+                  </div>
+                  <div class="details-value col-xs-12 col-sm-6 col-md-6" id="pressure">
+                    <p>1000 hPa</p>
+                  </div>
+                </div>
+  
+                <div class="details d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
+                  <div class="details-label col-xs-12 col-sm-6 col-md-6">
+                    <p>Wiatr:</p>
+                  </div>
+                  <div class="details-value col-xs-12 col-sm-6 col-md-6" id="pressure">
+                    <p>20 km/h</p>
+                  </div>
+                </div>
+  
+                <div class="details d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
+                  <div class="details-label col-xs-12 col-sm-6 col-md-6">
+                    <p>Opady:</p>
+                  </div>
+                  <div class="details-value col-xs-12 col-sm-6 col-md-6" id="pressure">
+                    <p>1 mm/m<sup>2</sup></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Slider navigation -->
+            <div class="nav">
+              <label for="id1" class="dots" id="dot1"></label>
+              <label for="id2" class="dots" id="dot2"></label>
+              <label for="id3" class="dots" id="dot3"></label>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
-
-
-
-
-    <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+  </div>
 </body>
-
 </html>
