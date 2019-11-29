@@ -1,20 +1,49 @@
-// Create a request variable and assign a new XMLHttpRequest object to it.
-var request = new XMLHttpRequest()
-// var miasto = getbyid
-// Open a new connection, using the GET request on the URL endpoint
+let APPID = "82005d27a116c2880c8f0fcb866998a0";
 
-// Current weather API call
-request.open('GET', 'http://api.openweathermap.org/data/2.5/weather?q={city name},{country code}&APPID=82005d27a116c2880c8f0fcb866998a0', true)
-// Weather forecast API call
-request.open('GET', 'http://api.openweathermap.org/data/2.5/forecast?q={city name},{country code}&APPID=82005d27a116c2880c8f0fcb866998a0', true)
-
-// Example: request.open('GET', 'http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=82005d27a116c2880c8f0fcb866998a0', true)
-
-request.onload = function() { 
-  
- console.log(request.response);
-  // Begin accessing JSON data here
+window.onload = function() {
+  var buttonInspect = document.getElementById("button");
+  buttonInspect.addEventListener("click", handler);
+  var input = document.getElementById("search-city");
+  input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("search-city").click();
+      searchWeather(input.value);
+    }
+  });
 }
 
-// Send request
-request.send()
+function searchWeather(city) {
+  fetch (`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${APPID}`).then(result => {
+    return result.json();
+  }).then(result => {
+    init(result);
+  })
+}
+
+function init(resultFromServer) {
+  console.log(resultFromServer);
+  let city1 = document.getElementById("city1"); 
+  city1.innerHTML = resultFromServer.name;
+
+  let temperature = document.getElementById("city1-temperature"); 
+  temperature.innerHTML = Math.floor(resultFromServer.main.temp) + "&#176C";
+
+  let icon = document.getElementById("city1-weather-icon"); 
+  icon.src = "icons/" + resultFromServer.weather[0].icon + ".png";
+
+  let pressure = document.getElementById("city1-pressure"); 
+  pressure.innerHTML = resultFromServer.main.pressure + "&nbsphPa";
+
+  let wind = document.getElementById("city1-wind"); 
+  wind.innerHTML = Math.floor(resultFromServer.wind.speed) + "m/s";
+
+  let fall = document.getElementById("city1-fall"); 
+  fall.innerHTML = resultFromServer.rain[0];
+}
+
+function handler() {
+  let city = document.getElementById("search-city").value;
+  if(city)
+  searchWeather(city);
+}

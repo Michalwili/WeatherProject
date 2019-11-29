@@ -25,9 +25,9 @@
       </div>
       <section class="search-box">
         <div class="input-group">
-          <input class="search-city form-control" type="search" placeholder="Wyszukaj miasto" aria-label="search">
+          <input class="form-control" id="search-city" type="search" placeholder="Wyszukaj miasto" aria-label="search" value="">
           <div class="input-group-append">
-            <button class="btn btn-secondary" type="submit">
+            <button class="btn btn-secondary" id="button" type="submit">
               <i class="fas fa-search"></i>
             </button>
           </div>
@@ -48,13 +48,13 @@
               <img src="img/bg_500x550.png" alt="city1">
               <label for="id2" class="next"></label>
               <div class="cityWeather pt-4 d-flex flex-column flex-nowrap justify-content-center align-items-center text-center">
-                <h1 class="city1-name mb-0" id="city1">Wejherowo</h1>
+                <h1 class="mb-0" id="city1">-</h1>
                 <div class="icon-and-temperature pb-1 d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
                   <div>
-                    <img src="icons\png\256x256\mostlycloudy.png" class="city1-weather-icon" alt="ikona-pogody">
+                    <img src="icons/unknown.png" id="city1-weather-icon" alt="ikona-pogody">
                   </div> 
                   <div>
-                    <h2 class="city1-temperature mb-0">5&deg;C</h2>
+                    <h2 class="mb-0" id="city1-temperature">-</h2>
                   </div>
                 </div> 
                 
@@ -63,7 +63,7 @@
                     <p>Ciśnienie:</p>
                   </div>
                   <div class="city1-details-value-1 details-value">
-                    <p id="city1-pressure">1000 hPa</p>
+                    <p id="city1-pressure">-</p>
                   </div>
                 </div>
 
@@ -72,7 +72,7 @@
                     <p>Wiatr:</p>
                   </div>
                   <div class="city1-details-value-2 details-value">
-                    <p id="city1-wind">20 km/h</p>
+                    <p id="city1-wind">-</p>
                   </div>
                 </div>
 
@@ -81,7 +81,7 @@
                     <p>Opady:</p>
                   </div>
                   <div class="city1-details-value-3 details-value">
-                    <p id="city1-fall">1 mm/m<sup>2</sup></p>
+                    <p id="city1-fall">-</p>
                   </div>
                 </div>
               </div>
@@ -93,13 +93,13 @@
               <img src="img/bg_500x550.png" alt="">
               <label for="id3" class="next"></label>
               <div class="cityWeather pt-4 d-flex flex-column flex-nowrap justify-content-center align-items-center text-center">
-                <h1 class="city2-name mb-0" id="city2">Gdynia</h1>
+                <h1 class="mb-0" id="city2">-</h1>
                 <div class="icon-and-temperature pb-1 d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
                   <div>
-                    <img src="icons\png\256x256\mostlycloudy.png" class="city2-weather-icon" alt="ikona-pogody">
+                    <img src="icons\unknown.png" id="city2-weather-icon" alt="ikona-pogody">
                   </div> 
                   <div>
-                    <h2 class="city2-temperature mb-0">4&deg;C</h2>
+                    <h2 class="mb-0" id="city2-temperature">-</h2>
                   </div>
                 </div> 
                 
@@ -108,7 +108,7 @@
                     <p>Ciśnienie:</p>
                   </div>
                   <div class="city2-details-value-1 details-value">
-                    <p id="city2-pressure">1000 hPa</p>
+                    <p id="city2-pressure">-</p>
                   </div>
                 </div>
 
@@ -117,7 +117,7 @@
                     <p>Wiatr:</p>
                   </div>
                   <div class="city2-details-value-2 details-value">
-                    <p id="city2-wind">20 km/h</p>
+                    <p id="city2-wind">-</p>
                   </div>
                 </div>
 
@@ -126,7 +126,7 @@
                     <p>Opady:</p>
                   </div>
                   <div class="city2-details-value-3 details-value">
-                    <p id="city2-fall">1 mm/m<sup>2</sup></p>
+                    <p id="city2-fall">-</p>
                   </div>
                 </div>
               </div>
@@ -138,13 +138,13 @@
               <img src="img/bg_500x550.png" alt="">
               <label for="id1" class="next"></label>
               <div class="cityWeather pt-4 d-flex flex-column flex-nowrap justify-content-center align-items-center text-center">
-                <h1 class="city3-name mb-0" id="city3">Gdańsk</h1>
+                <h1 class="mb-0" id="city3">-</h1>
                 <div class="icon-and-temperature pb-1 d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
                   <div>
-                    <img src="icons\png\256x256\mostlycloudy.png" class="city3-weather-icon" alt="ikona-pogody">
+                    <img src="icons\unknown.png" id="city3-weather-icon" alt="ikona-pogody">
                   </div> 
                   <div>
-                    <h2 class="city3-temperature mb-0">3&deg;C</h2>
+                    <h2 class="mb-0" id="city3-temperature">-</h2>
                   </div>
                 </div> 
                   
@@ -153,7 +153,7 @@
                     <p>Ciśnienie:</p>
                   </div>
                   <div class="city3-details-value-1 details-value">
-                    <p id="city3-pressure">1000 hPa</p>
+                    <p id="city3-pressure">-</p>
                   </div>
                 </div>
   
@@ -162,7 +162,7 @@
                     <p>Wiatr:</p>
                   </div>
                   <div class="city3-details-value-2 details-value">
-                    <p id="city3-wind">20 km/h</p>
+                    <p id="city3-wind">-</p>
                   </div>
                 </div>
   
@@ -171,7 +171,7 @@
                     <p>Opady:</p>
                   </div>
                   <div class="city3-details-value-3 details-value">
-                    <p id="city3-fall">1 mm/m<sup>2</sup></p>
+                    <p id="city3-fall">-</p>
                   </div>
                 </div>
               </div>

@@ -87,7 +87,7 @@ header {
     -webkit-animation-timing-function: ease-in-out;
             animation-timing-function: ease-in-out;
 }
-input.search-city {
+input#search-city {
     text-align: center;
 }
 
@@ -182,7 +182,7 @@ div.icon-and-temperature, div.icon-and-temperature > *,
 div.details, div.details > * {
     flex: 1;
 }
-h1.city1-name, h1.city2-name, h1.city3-name {
+h1 {
     font-family: 'Lato', 'Didact Gothic', 'Arial', sans-serif;
     font-style: normal;
     font-weight: 700;
@@ -196,11 +196,11 @@ h1.city1-name, h1.city2-name, h1.city3-name {
 div.icon-and-temperature {
     padding: 0 0.5em;
 }
-img.city1-weather-icon, img.city2-weather-icon, img.city3-weather-icon {
+img#city1-weather-icon, img#city2-weather-icon, img#city3-weather-icon {
     width: 3.6em;
     height: 3.6em;
 }
-h2.city1-temperature, h2.city2-temperature, h2.city3-temperature {
+h2 {
     font-size: 3.6em;
     font-family: 'Lato', 'Didact Gothic', 'Arial', sans-serif;
     font-style: normal;
