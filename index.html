@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Lato:400,700&subset=latin-ext" rel="stylesheet">
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
   <link rel="stylesheet" href="main.css" type="text/css">
-  <script src="js/bootstrap.min.js"></script>
   <script src="script.js"></script>
   <script src="https://kit.fontawesome.com/9b2aac655c.js" crossorigin="anonymous"></script>
 </head>
@@ -20,7 +19,10 @@
   <!-- Header & search-box -->
   <div class="main-contener w-auto">
     <div class="background position-fixed d-flex flex-column flex-nowrap justify-content-center align-items-center">
-      <div class="header rounded-lg">
+      <video autoplay muted loop id="myVideo" muted>
+        <source src="video/sunny.mp4" type="video/mp4">
+      </video>
+      <div class="header">
         <header>Pogoda dla Twojego miasta</header>
       </div>
       <section class="search-box">
@@ -43,7 +45,7 @@
             <input type="radio" name="images" id="id3">
 
             <!-- Location #1 -->
-            <div class="slide_img animationFade" id="one">
+            <div class="slide_img" id="one">
               <label for="id3" class="previous"></label>  
               <img src="img/bg_500x550.png" alt="city1">
               <label for="id2" class="next"></label>
@@ -78,10 +80,10 @@
 
                 <div class="details d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
                   <div class="details-label">
-                    <p>Opady:</p>
+                    <p>Zachmurzenie:</p>
                   </div>
                   <div class="city1-details-value-3 details-value">
-                    <p id="city1-fall">-</p>
+                    <p id="city1-clouds">-</p>
                   </div>
                 </div>
               </div>
@@ -123,10 +125,10 @@
 
                 <div class="details d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
                   <div class="details-label">
-                    <p>Opady:</p>
+                    <p>Zachmurzenie:</p>
                   </div>
                   <div class="city2-details-value-3 details-value">
-                    <p id="city2-fall">-</p>
+                    <p id="city2-clouds">-</p>
                   </div>
                 </div>
               </div>
@@ -168,10 +170,10 @@
   
                 <div class="details d-flex flex-row flex-nowrap justify-content-center align-items-center text-center col-12">
                   <div class="details-label">
-                    <p>Opady:</p>
+                    <p>Zachmurzenie:</p>
                   </div>
                   <div class="city3-details-value-3 details-value">
-                    <p id="city3-fall">-</p>
+                    <p id="city3-clouds">-</p>
                   </div>
                 </div>
               </div>

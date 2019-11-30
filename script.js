@@ -38,8 +38,8 @@ function init(resultFromServer) {
   let wind = document.getElementById("city1-wind"); 
   wind.innerHTML = Math.floor(resultFromServer.wind.speed) + "m/s";
 
-  let fall = document.getElementById("city1-fall"); 
-  fall.innerHTML = resultFromServer.rain[0];
+  let clouds = document.getElementById("city1-clouds"); 
+  clouds.innerHTML = resultFromServer.clouds.all + "%";
 }
 
 function handler() {
