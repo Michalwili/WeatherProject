@@ -42,6 +42,7 @@ function init(resultFromServer) {
   clouds.innerHTML = resultFromServer.clouds.all + "%";
   
   let weat = resultFromServer.weather[0];
+<<<<<<< HEAD
   let daytime = resultFromServer.dt;
   let sunrise = resultFromServer.sys.sunrise;
   let sunset = resultFromServer.sys.sunset;
@@ -70,6 +71,21 @@ function init(resultFromServer) {
     video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/foggy-night.mp4" type="video/mp4"></video>';  
   } else if ((weat.main === "Drizzle") && (daytime<sunset && daytime>sunrise)) {
     video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/drizzle.mp4" type="video/mp4"></video>';
+=======
+  console.log(weat.main)
+  let video = document.querySelector(".videoW");
+
+  if (weat.main === "Clouds") {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/cloudy.mp4" type="video/mp4"></video>';
+  } else if (weat.main === "Rain") {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/rainy.mp4" type="video/mp4"></video>';
+  } else if (weat.main === "Clear") {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/sunny.mp4" type="video/mp4"></video>';
+  } else if (weat.main === "Snow") {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/snowy.mp4" type="video/mp4"></video>';
+  } else if (weat.main === "Fog") {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/foggy.mp4" type="video/mp4"></video>';
+>>>>>>> 5e19249e973b9240c03cc12fccb6460656a341ff
   }
 }
 
