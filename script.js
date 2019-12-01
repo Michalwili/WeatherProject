@@ -40,6 +40,37 @@ function init(resultFromServer) {
 
   let clouds = document.getElementById("city1-clouds"); 
   clouds.innerHTML = resultFromServer.clouds.all + "%";
+  
+  let weat = resultFromServer.weather[0];
+  let daytime = resultFromServer.dt;
+  let sunrise = resultFromServer.sys.sunrise;
+  let sunset = resultFromServer.sys.sunset;
+  console.log(weat.main);
+  let video = document.querySelector(".videoW");
+
+  if (weat.main === "Clouds" && (daytime<sunset && daytime>sunrise)) {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/cloudy.mp4" type="video/mp4"></video>';
+  } else if (weat.main === "Clouds" && (daytime>sunset || daytime<sunrise)) {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/cloudy-night.mp4" type="video/mp4"></video>';
+  } else if (weat.main === "Rain" && (daytime<sunset && daytime>sunrise)) {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/rainy.mp4" type="video/mp4"></video>';
+  } else if ((weat.main === "Rain" || weat.main === "Drizzle") && (daytime>sunset || daytime<sunrise)) {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/rainy-night.mp4" type="video/mp4"></video>';
+  } else if (weat.main === "Clear" && (daytime<sunset && daytime>sunrise)) {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/sunny.mp4" type="video/mp4"></video>';
+  } else if (weat.main === "Clear" && (daytime>sunset || daytime<sunrise)) {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/clear-night.mp4" type="video/mp4"></video>';  
+  } else if (weat.main === "Snow" && (daytime<sunset && daytime>sunrise)) {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/snowy.mp4" type="video/mp4"></video>';
+  } else if (weat.main === "Snow" && (daytime>sunset || daytime<sunrise)) {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/snowy-night.mp4" type="video/mp4"></video>';  
+  } else if ((weat.main === "Mist" || weat.main === "Smoke" || weat.main === "Haze" || weat.main === "Dust" || weat.main === "Fog" || weat.main === "Sand" || weat.main === "Ash" || weat.main === "Squall" || weat.main === "Tornado") && (daytime<sunset && daytime>sunrise)) {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/foggy.mp4" type="video/mp4"></video>';
+  } else if ((weat.main === "Mist" || weat.main === "Smoke" || weat.main === "Haze" || weat.main === "Dust" || weat.main === "Fog" || weat.main === "Sand" || weat.main === "Ash" || weat.main === "Squall" || weat.main === "Tornado") && (daytime>sunset || daytime<sunrise)) {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/foggy-night.mp4" type="video/mp4"></video>';  
+  } else if ((weat.main === "Drizzle") && (daytime<sunset && daytime>sunrise)) {
+    video.innerHTML = "<video autoplay muted loop " + 'id="myVideo"><source  src="video/drizzle.mp4" type="video/mp4"></video>';
+  }
 }
 
 function handler() {
