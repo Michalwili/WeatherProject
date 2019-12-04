@@ -72,6 +72,33 @@ function init(resultFromServer) {
   }
 }
 
+function loadImageAsync(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.addEventListener("load", event => resolve(img));
+    img.addEventListener("error", reason => reject(new Error(`Nie znaleziono zdjecia ${url}`)));
+    img.src = url;
+  });
+}
+
+const url = 'https://pixabay.com/get/52e5d1424e57a814f6d1867dda6d49214b6ac3e45656744d732e7fd297/lake-4541454_1920.jpg';
+async function loadImages() {
+  try {
+    const image = await loadImageAsync(url);
+    document.querySelector('.background').style.background = "url(" + image.currentSrc + ") center no-repeat";
+  } catch (err) {
+    console.log(Error("opss Coś nie dziła"));
+  }
+}
+
+let time = new Date();
+
+let hours = time.getHours();
+
+if (hours > 19 || hours < 6) {
+  loadImages();
+}
+
 function handler() {
   let city = document.getElementById("search-city").value;
   if(city)
