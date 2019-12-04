@@ -77,3 +77,6 @@ function handler() {
   if(city)
   searchWeather(city);
 }
+
+
+

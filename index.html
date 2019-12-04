@@ -15,6 +15,23 @@
   <script src="https://kit.fontawesome.com/9b2aac655c.js" crossorigin="anonymous"></script>
 </head>
 <body>
+   
+  <!-- Navbar for social media and changing styles --> 
+  <nav>
+    <div id="socialIcons"> 
+      <a href="#" class="fab fa-facebook"></a>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-linkedin"></a>
+    </div>
+    <div id="menu">
+      <ul>
+        <li>Choose style: </li>
+        <li id="dark" onclick="dark();"><a href="#">DARK</a></li>
+        <li id="bright" onclick="bright()"><a href="#">BRIGHT</a></li>
+        <li id="bright" onclick="byDefault()"><a href="#">DEFAULT</a></li>
+      </ul> 
+    </div>
+  </nav>
 
   <!-- Header & search-box -->
   <div class="main-contener w-auto">
@@ -191,5 +208,6 @@
       </main>
     </div>
   </div>
+<script src="dom.js"></script>
 </body>
 </html>

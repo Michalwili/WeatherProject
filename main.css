@@ -38,6 +38,62 @@ div.background {
         -ms-flex-align: center;
             align-items: center;
 }
+
+/* CSS for Navi BAR*/
+nav {
+    position: relative;
+    background-color: grey;
+    padding: 0px;
+    }
+    #socialIcons {
+        width: 50%;  /* % of parent elemenent which navi section */
+        padding: 5px;
+    }
+    .fab {
+        padding: 0px;
+        font-size: 25px;
+        width: 40px;
+        text-align: center;
+        text-decoration: none;
+        margin: 0;
+    }
+    .fab:hover {
+        opacity: 0.3;
+    }
+    .fa-facebook {
+        color: #3B5998;
+    }
+    .fa-twitter {
+        color: #55ACEE;
+    }
+    .fa-linkedin {
+        color: #007bb5;;
+    }
+    #menu ul {
+        position: absolute;
+        right: 0%;
+        top: 10%;
+        display: block;
+        list-style: none;
+        margin: 0;
+        padding: 2px;
+        font-size: 1em;
+        }
+    #menu ul li {
+        display: block;
+        list-style: none;
+        margin: 0;
+        padding-right: 10px;
+        float: left;
+        }   
+    #menu ul a:link, ul a:visited {
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        color: var(--main-color);
+        }   
+
+
 /* Video in default display none */
 video {
    
@@ -61,7 +117,6 @@ header {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     margin-top: 2vh;
-    border: none;
     outline: none;
     font-family: 'Lato', 'Didact Gothic', 'Arial', sans-serif;
     font-style: normal;
@@ -139,7 +194,7 @@ div.slider-container {
     width: 100%;    
     min-height: 25em;
     height: 100%;
-    background-color: #FAFAFA;
+    background-color: rgba(62, 62, 62, 0.144);
     display: flex;
     flex-basis: row wrap;
     align-items: center;
