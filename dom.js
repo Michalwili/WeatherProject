@@ -1,3 +1,9 @@
+function initialize() {
+    var input = document.getElementById('search-city');
+    new google.maps.places.Autocomplete(input);
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+ 
  /* DARK STYLING*/
 function dark(){    
     const header1 = document.getElementsByTagName('h1');

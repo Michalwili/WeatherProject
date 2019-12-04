@@ -46,7 +46,7 @@ nav {
     padding: 0px;
     }
     #socialIcons {
-        width: 50%;  /* % of parent elemenent which navi section */
+        width: 50%; 
         padding: 5px;
     }
     .fab {
