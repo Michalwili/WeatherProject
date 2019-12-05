@@ -33,8 +33,6 @@ function searchWeather(city) {
   }).then(resultForecast => {
     initForecast(resultForecast);
   });
-  if (result === null || result === undefined)
-    alert('Nie znaleziono miasta!');
 }
 
 //Parsing current weather data
