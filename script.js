@@ -274,7 +274,7 @@ function bright() {
   fContainer[0].style.border = "solid rgba(255, 255, 0, 0.6) 1px";
 
 
-  for (let i = 1; i < 12; i++) {
+  for (let i = 1; i <= 12; i++) {
     let smallWeatherIcon = document.getElementById("timestamp" + i + "icon");
     if (smallWeatherIcon.src.includes('solidWhite')) {
       smallWeatherIcon.src = smallWeatherIcon.src.replace("icons/solidWhite/", "icons/");
