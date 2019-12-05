@@ -22,13 +22,13 @@ window.onload = function () {
 
 //Fetching weather api: I - current weather data; II - weather forecast;
 function searchWeather(city) {
-  fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${APPID}`).then(result => {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${APPID}`).then(result => {
     return result.json();
   }).then(result => {
     init(result);
   });
 
-  fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${APPID}`).then(resultForecast => {
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${APPID}`).then(resultForecast => {
     return resultForecast.json();
   }).then(resultForecast => {
     initForecast(resultForecast);
