@@ -20,15 +20,22 @@ window.onload = function () {
   });
 }
 
+//Handler for the search bar & search button
+function handler() {
+  let city = document.getElementById("search-city").value;
+  if (city)
+    searchWeather(city);
+}
+
 //Fetching weather api: I - current weather data; II - weather forecast;
-function searchWeather(city) {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${APPID}`).then(result => {
+async function searchWeather(city) {
+  await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${APPID}`).then(result => {
     return result.json();
   }).then(result => {
     init(result);
   });
 
-  fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${APPID}`).then(resultForecast => {
+  await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${APPID}`).then(resultForecast => {
     return resultForecast.json();
   }).then(resultForecast => {
     initForecast(resultForecast);
@@ -104,13 +111,6 @@ function initForecast(resultFromServer) {
     //Loading temperature        
     document.getElementById("timestamp" + i + "temperature").innerHTML = Math.floor(resultFromServer.list[i].main.temp) + "&#176C";
   }
-}
-
-//Handler for the search bar & search button
-function handler() {
-  let city = document.getElementById("search-city").value;
-  if (city)
-    searchWeather(city);
 }
 
 //Autocomplete function - blocks the search instead of helping!!!
