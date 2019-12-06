@@ -355,11 +355,10 @@ function byDefault() {
   fContainer[0].style.color = null;;
   fContainer[0].style.border = null;
 
-  //  let smallWeatherIcon = document.getElementById("timestamp" + i + "icon");
-  let smallWeatherIcon = document.querySelector('.timestampIMG');
-  for (let i = 0; i < smallWeatherIcon.length; i++) {
+for (let i = 1; i <= 12; i++) {
+    let smallWeatherIcon = document.getElementById("timestamp" + i + "icon");
     if (smallWeatherIcon.src.includes('solidWhite')) {
-      smallWeatherIcon.src = smallWeatherIcon.src.replace("icons/solidWhite/" / g, "icons/");
+      smallWeatherIcon.src = smallWeatherIcon.src.replace("icons/solidWhite/", "icons/");
     }
   }
   let bigWeatherIcon = document.getElementById("weather-icon");
@@ -368,5 +367,4 @@ function byDefault() {
       bigWeatherIcon.src = bigWeatherIcon.src.replace("icons/solidWhite/", "icons/");
     }
   }
-
 }
