@@ -24,7 +24,7 @@ function handler() {
 
 //Fetching weather api: current weather data
 async function searchWeather(city) {
-  await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${APPID}`)
+  await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${APPID}`)
     .then(result => {
       console.log('Result status: ' + result.status);
 
@@ -63,7 +63,7 @@ async function searchWeather(city) {
 
 //Fetching weather api: weather forecast;
 async function searchWeatherForecast(city) {
-  await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${APPID}`)
+  await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${APPID}`)
     .then(resultForecast => {
       return resultForecast.json();
     })
