@@ -1,12 +1,7 @@
-//In case it is blocked, try the next APPID
-let APPID = "82005d27a116c2880c8f0fcb866998a0";
-//let APPID = "e1802879a56231bbd1806edc8ea2f601";
-//let APPID = "a7cf6cffc11434f9947467960f299885";
-//let APPID = "0ebf0e29926cc939f557a936228e1129";
-//let APPID = '8af2aa7fa978da0c3dc608a85406875c';
+let APPID = "e1802879a56231bbd1806edc8ea2f601";
 var currentStyle = 'default';
 
-//When the browser windows loads, event listener is on
+//When the browser windows loads, event listeners are on
 window.onload = function () {
   var buttonInspect = document.getElementById("button");
   buttonInspect.addEventListener("click", handler);
@@ -27,19 +22,57 @@ function handler() {
     searchWeather(city);
 }
 
-//Fetching weather api: I - current weather data; II - weather forecast;
+//Fetching weather api: current weather data
 async function searchWeather(city) {
-  await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${APPID}`).then(result => {
-    return result.json();
-  }).then(result => {
-    init(result);
-  });
+  await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${APPID}`)
+    .then(result => {
+      console.log('Result status: ' + result.status);
 
-  await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${APPID}`).then(resultForecast => {
-    return resultForecast.json();
-  }).then(resultForecast => {
-    initForecast(resultForecast);
-  });
+      if (result.status >= 400) {
+        for (let i = 0; i <= 28; i++) {
+          document.getElementsByClassName('data')[i].innerHTML = '-';
+        }
+
+        let icon = document.getElementById("weather-icon");
+        if (currentStyle === "dark") {
+          icon.src = "icons/solidWhite/unknown.png";
+        } else icon.src = "icons/unknown.png";
+
+        for (let i = 1; i <= 12; i++) {
+          if (currentStyle === 'dark') {
+            document.getElementById("timestamp" + i + "icon").src = "icons/solidWhite/unknown.png";
+          } else {
+            document.getElementById("timestamp" + i + "icon").src = "icons/unknown.png";
+          }
+        }
+        return alert('Nie znaleziono miasta');
+      } else {
+        return result.json();
+      }
+
+    }).then(result => {
+      if (result != undefined) {
+        console.log('Result: ' + result);
+        init(result);
+        searchWeatherForecast(city);
+      } else {
+        console.log('Result: ' + result);
+      }
+    })
+}
+
+//Fetching weather api: weather forecast;
+async function searchWeatherForecast(city) {
+  await fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${APPID}`)
+    .then(resultForecast => {
+      return resultForecast.json();
+    })
+    .then(resultForecast => {
+      initForecast(resultForecast);
+    }).catch(error => {
+      console.log(error);
+      throw error;
+    })
 }
 
 //Parsing current weather data
@@ -355,7 +388,8 @@ function byDefault() {
   fContainer[0].style.color = null;;
   fContainer[0].style.border = null;
 
-for (let i = 1; i <= 12; i++) {
+
+  for (let i = 1; i <= 12; i++) {
     let smallWeatherIcon = document.getElementById("timestamp" + i + "icon");
     if (smallWeatherIcon.src.includes('solidWhite')) {
       smallWeatherIcon.src = smallWeatherIcon.src.replace("icons/solidWhite/", "icons/");
